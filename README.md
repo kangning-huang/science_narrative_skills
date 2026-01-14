@@ -22,6 +22,20 @@ Chinese language version with the same functionality.
 - 获取科学写作叙事结构的反馈
 - 验证引用并检查来源表述
 
+## Preview Skill Contents
+
+Want to see what's inside before installing? All skill contents are available for preview:
+
+### English Version (`abt-narrative-critique`)
+- [Main skill instructions (SKILL.md)](abt-narrative-critique/SKILL.md)
+- [Research proposal evaluation criteria](abt-narrative-critique/references/proposal-criteria.md)
+- [Research paper evaluation criteria](abt-narrative-critique/references/paper-criteria.md)
+
+### Chinese Version (`abt-narrative-critique-zh`)
+- [主技能说明 (SKILL.md)](abt-narrative-critique-zh/SKILL.md)
+- [研究提案评估标准](abt-narrative-critique-zh/references/proposal-criteria-zh.md)
+- [研究论文评估标准](abt-narrative-critique-zh/references/paper-criteria-zh.md)
+
 ## What is the ABT Framework?
 
 The ABT framework structures scientific narratives as:
