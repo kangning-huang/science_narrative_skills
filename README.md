@@ -40,8 +40,8 @@ These skills analyze your scientific writing to ensure:
 ### For Claude.ai (Web Interface)
 
 1. **Download the skill file:**
-   - For English: Download [`abt-narrative-critique.skill`](https://raw.githubusercontent.com/YOUR_USERNAME/science_narrative_skills/main/abt-narrative-critique.skill)
-   - For Chinese: Download [`abt-narrative-critique-zh.skill`](https://raw.githubusercontent.com/YOUR_USERNAME/science_narrative_skills/main/abt-narrative-critique-zh.skill)
+   - For English: Download [`abt-narrative-critique.skill`](https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique.skill)
+   - For Chinese: Download [`abt-narrative-critique-zh.skill`](https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique-zh.skill)
 
 2. **Upload to Claude.ai:**
    - Go to [claude.ai](https://claude.ai)
@@ -66,10 +66,10 @@ These skills analyze your scientific writing to ensure:
    cd ~/.claude/skills
 
    # Download English version
-   curl -O https://raw.githubusercontent.com/YOUR_USERNAME/science_narrative_skills/main/abt-narrative-critique.skill
+   curl -O https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique.skill
 
    # Download Chinese version (optional)
-   curl -O https://raw.githubusercontent.com/YOUR_USERNAME/science_narrative_skills/main/abt-narrative-critique-zh.skill
+   curl -O https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique-zh.skill
    ```
 
 2. **Verify installation:**
