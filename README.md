@@ -84,34 +84,46 @@ Choose your platform below. All platforms use the same underlying skill instruct
 </details>
 
 <details>
-<summary><strong>Claude Code CLI (Marketplace Install)</strong></summary>
+<summary><strong>Claude Code CLI</strong></summary>
 
-#### Option A: Install from Marketplace Registry (Recommended)
+#### Option A: Install via Plugin Marketplace
 
 ```bash
-# Install from the community registry
-claude plugins install kangning-huang/science_narrative_skills
+# 1. Add this repository as a marketplace
+/plugin marketplace add kangning-huang/science_narrative_skills
 
-# Or using CCPM (Claude Code Plugin Manager)
-ccpm install science_narrative_skills
+# 2. Install the skills plugin
+/plugin install science-narrative-skills@science_narrative_skills
 ```
 
-#### Option B: Manual Download
-
+Or using the CLI directly:
 ```bash
-# Navigate to your skills directory
-mkdir -p ~/.claude/skills && cd ~/.claude/skills
-
-# Download English version
-curl -O https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique.skill
-
-# Download Chinese version (optional)
-curl -O https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique-zh.skill
+claude plugin marketplace add kangning-huang/science_narrative_skills
+claude plugin install science-narrative-skills@science_narrative_skills --scope user
 ```
 
-**Verify installation:**
+#### Option B: Manual Download (Recommended for quick setup)
+
 ```bash
-claude skills list
+# Create skills directory and download
+mkdir -p ~/.claude/skills/abt-narrative-critique/references
+
+# Download English skill files
+curl -o ~/.claude/skills/abt-narrative-critique/SKILL.md \
+  https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique/SKILL.md
+curl -o ~/.claude/skills/abt-narrative-critique/references/proposal-criteria.md \
+  https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique/references/proposal-criteria.md
+curl -o ~/.claude/skills/abt-narrative-critique/references/paper-criteria.md \
+  https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique/references/paper-criteria.md
+
+# Optional: Download Chinese version
+mkdir -p ~/.claude/skills/abt-narrative-critique-zh/references
+curl -o ~/.claude/skills/abt-narrative-critique-zh/SKILL.md \
+  https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique-zh/SKILL.md
+curl -o ~/.claude/skills/abt-narrative-critique-zh/references/proposal-criteria-zh.md \
+  https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique-zh/references/proposal-criteria-zh.md
+curl -o ~/.claude/skills/abt-narrative-critique-zh/references/paper-criteria-zh.md \
+  https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique-zh/references/paper-criteria-zh.md
 ```
 
 **Use the skill:**
@@ -374,14 +386,21 @@ These skills implement the ABT (And-But-Therefore) framework from:
 
 ## Marketplace & Registry
 
-This repository is registered with multiple skill marketplaces:
+This repository supports Claude Code plugin marketplace installation:
 
-| Marketplace | Status | Install Command |
-|-------------|--------|-----------------|
-| [SkillsMP](https://skillsmp.com) | Available | Search "ABT Narrative" |
-| Claude Code Registry | Available | `claude plugins install kangning-huang/science_narrative_skills` |
-| [CCPM](https://claude-plugins.dev) | Available | `ccpm install science_narrative_skills` |
-| [OpenAI Skills Catalog](https://github.com/openai/skills) | Compatible | Manual install |
+```bash
+# Add as a marketplace
+/plugin marketplace add kangning-huang/science_narrative_skills
+
+# Install the plugin
+/plugin install science-narrative-skills@science_narrative_skills
+```
+
+| Platform | Installation Method |
+|----------|---------------------|
+| Claude Code | Plugin marketplace (see above) or manual download |
+| [OpenAI Codex](https://github.com/openai/skills) | Compatible SKILL.md format |
+| Other platforms | See platform-specific instructions above |
 
 See [MARKETPLACE.md](MARKETPLACE.md) for detailed registration information.
 
@@ -391,9 +410,14 @@ See [MARKETPLACE.md](MARKETPLACE.md) for detailed registration information.
 science_narrative_skills/
 ├── README.md                    # This file
 ├── MARKETPLACE.md               # Marketplace registration info
-├── plugin.json                  # Plugin manifest for registries
-├── abt-narrative-critique.skill # English skill (Claude)
-├── abt-narrative-critique-zh.skill # Chinese skill (Claude)
+├── .claude-plugin/              # Claude Code plugin config
+│   ├── plugin.json              # Plugin manifest
+│   └── marketplace.json         # Marketplace definition
+├── skills/                      # Skills directory (for plugin)
+│   ├── abt-narrative-critique/  # → symlink to source
+│   └── abt-narrative-critique-zh/
+├── abt-narrative-critique.skill # English skill (Claude.ai upload)
+├── abt-narrative-critique-zh.skill # Chinese skill (Claude.ai upload)
 ├── abt-narrative-critique/      # Source files (English)
 │   ├── SKILL.md
 │   └── references/

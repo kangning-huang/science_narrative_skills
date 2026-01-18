@@ -1,0 +1,17 @@
+{
+  "name": "science-narrative-skills",
+  "version": "1.0.0",
+  "description": "ABT (And-But-Therefore) narrative critique skills for scientific writing evaluation",
+  "author": "Kangning Huang",
+  "homepage": "https://github.com/kangning-huang/science_narrative_skills",
+  "license": "MIT",
+  "keywords": [
+    "scientific-writing",
+    "research",
+    "narrative",
+    "ABT",
+    "critique",
+    "environmental-science",
+    "urban-climate"
+  ]
+}

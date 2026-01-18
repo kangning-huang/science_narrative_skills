@@ -1,0 +1,12 @@
+{
+  "name": "science_narrative_skills",
+  "description": "ABT (And-But-Therefore) narrative critique skills for scientific writing evaluation",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "science-narrative-skills",
+      "description": "Evaluate research proposals and papers using the ABT storytelling framework. Calibrated for environmental science and urban climate research.",
+      "source": "."
+    }
+  ]
+}
