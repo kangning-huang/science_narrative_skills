@@ -1,6 +1,8 @@
 # Science Narrative Skills
 
-Custom Claude skills for evaluating scientific writing using the **And-But-Therefore (ABT)** storytelling framework from Randy Olson's book *"Houston, We Have a Narrative"*.
+Custom AI skills for evaluating scientific writing using the **And-But-Therefore (ABT)** storytelling framework from Randy Olson's book *"Houston, We Have a Narrative"*.
+
+> **Multi-platform support**: Available for Claude, ChatGPT, Codex, Gemini, GitHub Copilot, Cursor, Windsurf, and more.
 
 ## Available Skills
 
@@ -51,7 +53,14 @@ These skills analyze your scientific writing to ensure:
 
 ## Installation
 
-### For Claude.ai (Web Interface)
+Choose your platform below. All platforms use the same underlying skill instructions.
+
+---
+
+### 🤖 Claude Platforms
+
+<details>
+<summary><strong>Claude.ai (Web Interface)</strong></summary>
 
 1. **Download the skill file:**
    - For English: Download [`abt-narrative-critique.skill`](https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique.skill)
@@ -72,39 +81,49 @@ These skills analyze your scientific writing to ensure:
    - Paste your research proposal or paper introduction/abstract
    - Ask Claude to evaluate it
 
-### For Claude Code CLI
+</details>
 
-1. **Download the skill file:**
-   ```bash
-   # Navigate to your skills directory
-   cd ~/.claude/skills
+<details>
+<summary><strong>Claude Code CLI (Marketplace Install)</strong></summary>
 
-   # Download English version
-   curl -O https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique.skill
+#### Option A: Install from Marketplace Registry (Recommended)
 
-   # Download Chinese version (optional)
-   curl -O https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique-zh.skill
-   ```
+```bash
+# Install from the community registry
+claude plugins install kangning-huang/science_narrative_skills
 
-2. **Verify installation:**
-   ```bash
-   # List available skills
-   claude skills list
-   ```
+# Or using CCPM (Claude Code Plugin Manager)
+ccpm install science_narrative_skills
+```
 
-   You should see `abt-narrative-critique` (and `abt-narrative-critique-zh` if you downloaded it) in the list.
+#### Option B: Manual Download
 
-3. **Use the skill:**
-   ```bash
-   # Start Claude Code and invoke the skill
-   claude
+```bash
+# Navigate to your skills directory
+mkdir -p ~/.claude/skills && cd ~/.claude/skills
 
-   # In the conversation, use the skill:
-   # /abt-narrative-critique
-   # Then paste your text or provide a file path
-   ```
+# Download English version
+curl -O https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique.skill
 
-### For Claude Cowork (VS Code Extension)
+# Download Chinese version (optional)
+curl -O https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique-zh.skill
+```
+
+**Verify installation:**
+```bash
+claude skills list
+```
+
+**Use the skill:**
+```bash
+claude
+# Then invoke with: /abt-narrative-critique
+```
+
+</details>
+
+<details>
+<summary><strong>Claude Cowork (VS Code Extension)</strong></summary>
 
 1. **Download the skill file** (same as Claude.ai method above)
 
@@ -120,6 +139,182 @@ These skills analyze your scientific writing to ensure:
    - Type `/skills` to see available skills
    - Select `abt-narrative-critique` or use `/abt-narrative-critique` to invoke it
    - Provide your text for evaluation
+
+</details>
+
+---
+
+### 🟢 OpenAI Platforms
+
+<details>
+<summary><strong>OpenAI Codex CLI</strong></summary>
+
+Codex CLI uses the same SKILL.md format as Claude Code.
+
+```bash
+# Create skills directory
+mkdir -p ~/.codex/skills/abt-narrative-critique
+
+# Download the skill
+curl -o ~/.codex/skills/abt-narrative-critique/SKILL.md \
+  https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique/SKILL.md
+
+# Download reference files
+mkdir -p ~/.codex/skills/abt-narrative-critique/references
+curl -o ~/.codex/skills/abt-narrative-critique/references/proposal-criteria.md \
+  https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique/references/proposal-criteria.md
+curl -o ~/.codex/skills/abt-narrative-critique/references/paper-criteria.md \
+  https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/abt-narrative-critique/references/paper-criteria.md
+```
+
+**Use the skill:**
+```bash
+codex
+# Explicit invocation: $abt-narrative-critique
+# Or let Codex auto-select based on your prompt
+```
+
+See [OpenAI Codex Skills Documentation](https://developers.openai.com/codex/skills/) for more details.
+
+</details>
+
+<details>
+<summary><strong>ChatGPT Custom GPT</strong></summary>
+
+Create a Custom GPT using these instructions:
+
+1. Go to [ChatGPT](https://chat.openai.com) → **Explore GPTs** → **Create**
+
+2. **Configure your GPT:**
+   - **Name:** ABT Narrative Critique
+   - **Description:** Evaluate research proposals and papers using the And-But-Therefore storytelling framework
+   - **Instructions:** Copy the content from [`platforms/chatgpt/instructions.md`](platforms/chatgpt/instructions.md)
+
+3. **Optional - Add Knowledge:**
+   - Upload [`platforms/chatgpt/proposal-criteria.md`](platforms/chatgpt/proposal-criteria.md)
+   - Upload [`platforms/chatgpt/paper-criteria.md`](platforms/chatgpt/paper-criteria.md)
+
+4. **Capabilities:** Enable "Web Browsing" for citation verification
+
+5. Click **Create** and start using your GPT
+
+</details>
+
+---
+
+### 🔵 Google Platforms
+
+<details>
+<summary><strong>Gemini Gems</strong></summary>
+
+Create a custom Gem for ABT critique:
+
+1. Go to [gemini.google.com/gems/create](https://gemini.google.com/gems/create)
+
+2. **Configure your Gem:**
+   - **Name:** ABT Narrative Critique
+   - **Instructions:** Copy the content from [`platforms/gemini/gem-instructions.md`](platforms/gemini/gem-instructions.md)
+
+3. Click **"Use Gemini to re-write instructions"** to expand the prompt (optional)
+
+4. **Save** your Gem
+
+**Tip:** Gems can link to your Google Drive. Upload the reference criteria files to Drive and reference them in your Gem.
+
+See [Google's Gem creation guide](https://support.google.com/gemini/answer/15235603) for more details.
+
+</details>
+
+---
+
+### 💻 IDE Integrations
+
+<details>
+<summary><strong>GitHub Copilot</strong></summary>
+
+Add custom instructions for Copilot:
+
+1. Create `.github/copilot-instructions.md` in your repository:
+```bash
+mkdir -p .github
+curl -o .github/copilot-instructions.md \
+  https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/platforms/github-copilot/copilot-instructions.md
+```
+
+2. **Enable instruction files** in VS Code:
+   - Open Settings → search for `github.copilot.chat.codeGeneration.useInstructionFiles`
+   - Enable it
+
+3. Use Copilot Chat to evaluate your scientific writing
+
+See [GitHub Copilot Custom Instructions](https://docs.github.com/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot) for more details.
+
+</details>
+
+<details>
+<summary><strong>Cursor IDE</strong></summary>
+
+Add rules for Cursor AI:
+
+1. Create the rules directory and file:
+```bash
+mkdir -p .cursor/rules
+curl -o .cursor/rules/abt-narrative-critique.mdc \
+  https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/platforms/cursor/abt-narrative-critique.mdc
+```
+
+2. The rule will auto-activate when you ask about scientific writing evaluation
+
+See [Cursor Rules Documentation](https://docs.cursor.com/context/rules) for more details.
+
+</details>
+
+<details>
+<summary><strong>Windsurf IDE</strong></summary>
+
+Add rules for Windsurf/Codeium:
+
+1. Create the rules directory and file:
+```bash
+mkdir -p .windsurf/rules
+curl -o .windsurf/rules/abt-narrative-critique.md \
+  https://raw.githubusercontent.com/kangning-huang/science_narrative_skills/main/platforms/windsurf/abt-narrative-critique.md
+```
+
+2. The rule will be available in your Windsurf sessions
+
+See [Windsurf Rules Directory](https://windsurf.com/editor/directory) for more details.
+
+</details>
+
+---
+
+### 🌐 Other Platforms
+
+<details>
+<summary><strong>Qwen (通义千问)</strong></summary>
+
+For Alibaba's Qwen assistant, use the instructions as a system prompt:
+
+1. Copy the content from [`platforms/qwen/system-prompt.md`](platforms/qwen/system-prompt.md) (Chinese) or [`platforms/qwen/system-prompt-en.md`](platforms/qwen/system-prompt-en.md) (English)
+
+2. Paste into Qwen's custom instructions or system prompt field
+
+3. For Qwen API users, include the instructions in the `system` role message
+
+</details>
+
+<details>
+<summary><strong>Any LLM with System Prompts</strong></summary>
+
+The core instructions work with any LLM that supports system prompts or custom instructions:
+
+1. Use [`platforms/generic/system-prompt.md`](platforms/generic/system-prompt.md) as your system prompt
+2. Optionally include the reference criteria files for domain-specific guidance
+
+**Tested with:** LLaMA, Mistral, Phi, DeepSeek, Yi, and other open-source models.
+
+</details>
 
 ## Usage Examples
 
@@ -177,6 +372,44 @@ These skills implement the ABT (And-But-Therefore) framework from:
 
 **Olson, R. (2015). *Houston, We Have a Narrative: Why Science Needs Story*. University of Chicago Press.**
 
+## Marketplace & Registry
+
+This repository is registered with multiple skill marketplaces:
+
+| Marketplace | Status | Install Command |
+|-------------|--------|-----------------|
+| [SkillsMP](https://skillsmp.com) | Available | Search "ABT Narrative" |
+| Claude Code Registry | Available | `claude plugins install kangning-huang/science_narrative_skills` |
+| [CCPM](https://claude-plugins.dev) | Available | `ccpm install science_narrative_skills` |
+| [OpenAI Skills Catalog](https://github.com/openai/skills) | Compatible | Manual install |
+
+See [MARKETPLACE.md](MARKETPLACE.md) for detailed registration information.
+
+## File Structure
+
+```
+science_narrative_skills/
+├── README.md                    # This file
+├── MARKETPLACE.md               # Marketplace registration info
+├── plugin.json                  # Plugin manifest for registries
+├── abt-narrative-critique.skill # English skill (Claude)
+├── abt-narrative-critique-zh.skill # Chinese skill (Claude)
+├── abt-narrative-critique/      # Source files (English)
+│   ├── SKILL.md
+│   └── references/
+├── abt-narrative-critique-zh/   # Source files (Chinese)
+│   ├── SKILL.md
+│   └── references/
+└── platforms/                   # Platform-specific configs
+    ├── chatgpt/                 # ChatGPT Custom GPT
+    ├── gemini/                  # Gemini Gems
+    ├── github-copilot/          # GitHub Copilot
+    ├── cursor/                  # Cursor IDE
+    ├── windsurf/                # Windsurf/Codeium
+    ├── qwen/                    # Qwen (Chinese & English)
+    └── generic/                 # Any LLM system prompt
+```
+
 ## License
 
 MIT License - Feel free to use, modify, and share.
@@ -184,6 +417,12 @@ MIT License - Feel free to use, modify, and share.
 ## Contributing
 
 Found a bug or have suggestions? Please open an issue or submit a pull request.
+
+**Adding new platform support:**
+1. Create a directory under `platforms/` with your platform name
+2. Add the appropriate instruction/config file
+3. Update this README with installation instructions
+4. Submit a pull request
 
 ## Author
 

@@ -1,0 +1,53 @@
+---
+name: abt-narrative-critique
+description: Evaluate scientific writing using the ABT (And-But-Therefore) framework
+apply_when:
+  - query_contains: ["ABT", "narrative", "research proposal", "paper critique", "scientific writing", "introduction evaluation"]
+---
+
+# ABT Narrative Critique Rule
+
+When evaluating scientific writing, use the And-But-Therefore (ABT) framework from Randy Olson's "Houston, We Have a Narrative".
+
+## Framework
+
+- **AND**: Literature context (what is known)
+- **BUT**: Knowledge gap (what is unknown)
+- **THEREFORE**: Resolution (how research addresses the gap)
+
+## Evaluation Steps
+
+1. Identify document type: proposal (forward-looking) or paper (retrospective)
+2. Extract AND, BUT, THEREFORE components
+3. Evaluate each for quality, citations, and logical flow
+4. Classify issues by severity: Fatal, Significant, Minor
+
+## Output Structure
+
+```markdown
+## ABT Narrative Assessment
+
+### Overall Verdict
+[Strong/Adequate/Weak]
+
+### AND (Context)
+[Assessment] - Severity: [Level]
+
+### BUT (Gap)
+[Assessment] - Severity: [Level]
+
+### THEREFORE (Resolution)
+[Assessment] - Severity: [Level]
+
+### Recommendations
+1. [Suggestion]
+2. [Suggestion]
+```
+
+## Domain: Environmental/Urban Science
+
+- Citations: 20-40 in papers, 8-15 in introductions
+- Key literature: Oke, Stewart & Oke LCZ
+- Watch for: scale mismatches, modeling vs observation confusion
+
+Be constructive. Acknowledge strengths. Don't rewrite—suggest improvements.
